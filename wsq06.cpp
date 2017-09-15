@@ -1,3 +1,5 @@
+// Factorial calculator
+
 #include <iostream>
 #include <string>
 using namespace std;
