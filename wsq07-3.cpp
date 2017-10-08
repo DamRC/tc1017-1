@@ -43,7 +43,7 @@ int main ()
     // because the input type is a double, any string input will terminate the loop
 
 
-    double list[];
+    double list[]; //extern allows the array to have an unknown size
     double x;
     int n = 0;
 
@@ -53,9 +53,9 @@ int main ()
         list [n] = x;
     }
 
-    int m = list.size();
-    cout << "The sum of those values is: " << total (0, 0, list) << endl; // assigns value "0" to n and result and the array list to the parameter list
-    double sum = total (0, 0, list);
+    int m = list.size(list);
+    cout << "The sum of those values is: " << total (0, 0, list, m) << endl; // assigns value "0" to n and result and the array list to the parameter list
+    double sum = total (0, 0, list, m);
     cout << "The average of the values is: " << average (sum, 0, m) << endl; // this gives the sum in the previous function as parameter for the average
     double avg = average(sum, 0, m);
     cout << "The standard deviation of the values provided is: " << standarddeviation (0, 0, 0, sum, avg, list, 0, m) << endl;
