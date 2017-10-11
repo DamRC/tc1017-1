@@ -55,8 +55,6 @@ int main ()
 
     cout << "The sum of those values is: " << total (0, 0, list, num) << endl; // assigns value "0" to n and result and the array list to the parameter list
     double sum = total (0, 0, list, num);
-    cout << "The sum of those values is: " << total (0, 0, list) << endl; // assigns value "0" to n and result and the array list to the parameter list
-    double sum = total (0, 0, list);
     cout << "The average of the values is: " << average (sum, 0, num) << endl; // this gives the sum in the previous function as parameter for the average
     double avg = average(sum, 0, num);
     cout << "The standard deviation of the values provided is: " << standarddeviation (0, 0, 0, sum, avg, list, 0, num) << endl;
