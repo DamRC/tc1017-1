@@ -17,7 +17,9 @@ using namespace std;
  * This function receives a BigInteger n and checks if it is a palindrome
  * Return true if n is a palindrome, return false otherwise
  */
-bool is_palindrome(string num, int length, int back){
+bool is_palindrome(string num){
+  int length = num.length();
+  int back = length - 1;
 
   for (int i=0; i<(length/2); i++){
     int b = back - i;
@@ -31,7 +33,9 @@ bool is_palindrome(string num, int length, int back){
 /*
  * This function receives a string n and returns a BigInteger sum (new value to check palindromicity).
  */
-BigInteger Iterate(string num, int back, BigInteger numint){
+BigInteger Iterate(string num){
+  int back = num.length() - 1;
+  BigInteger numint = stringToBigInteger(num);
   string inverse;
   for (int i=0; i<=back; i++){
     int b = back - i;
@@ -60,13 +64,13 @@ int main() {
 
 
   recurse:
-  if (is_palindrome(num, length, back) == true){
+  if (is_palindrome(num) == true){
     cout << num << " is a palindrome" << endl;
     goto next;
   }
   else{
     cout << num << " is NOT  a palindrome" << endl;
-    BigInteger sum = Iterate(num, back, numint);
+    BigInteger sum = Iterate(num);
     num = bigIntegerToString(sum);
     goto recurse;
   }

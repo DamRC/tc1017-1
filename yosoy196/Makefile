@@ -52,8 +52,8 @@ testsuite-cleanfiles = \
 # your own Makefile.
 
 # Components of the program.
-program = yosoy196
-program-objects = yosoy196.o
+program = lycherel
+program-objects = lycherel.o
 
 # Conservatively assume all the program source files depend on all the library
 # headers.  You can change this if it is not the case.
