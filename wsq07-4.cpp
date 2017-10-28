@@ -10,8 +10,10 @@ using std::vector;
 using std::string;
 using std::getline;
 
-double total (int n, double result, double newlist[], int m)
+double total (double newlist[], int m)
 {
+  int n;
+  double result;
     for (n = 0; n <= m; ++n)
     {
         result = result + newlist[n];
@@ -19,21 +21,26 @@ double total (int n, double result, double newlist[], int m)
     return result;
 }
 
-double average (double sum, double avg, int m)
+double average (double sum,int m)
 {
+  double avg;
     avg = sum / m;
     return avg;
 }
 
-double standarddeviation (int n, double x, double sumatory, double sum, double avg, double newlist[], double stddev, int m)
+double standarddeviation (double sum, double avg, double newlist[], int m)
 {
+  int n;
+  double x;
+  double sumatory;
+  double stddev;
     // x = nvalue - avg
     for (n = 0; n < m; ++n) // needs to be smaller than n
     {
         x = pow ((newlist[n] - avg), 2);
         sumatory = sumatory + x;
     }
-    stddev = sqrt (sumatory / 10);
+    stddev = sqrt (sumatory / m);
     return stddev;
 }
 
@@ -68,11 +75,11 @@ int main ()
   }
 
   double sum;
-  sum = total (0, 0, newlist, num);
+  sum = total (newlist, num);
   cout << "The sum of those values is: " << sum << endl;
-  double avg = average(sum, 0, num);
+  double avg = average(sum,num);
   cout << "The average of the values is: " << avg << endl;
-  cout << "The standard deviation of the values provided is: " << standarddeviation (0, 0, 0, sum, avg, newlist, 0, num) << endl;
+  cout << "The standard deviation of the values provided is: " << standarddeviation (sum, avg, newlist, num) << endl;
 
 
   return 0;
