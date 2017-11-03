@@ -12,10 +12,10 @@ float division(float num, float divisor){
 }
 
 bool isanswer(float num, float divisor){
-  if (num/divisor == divisor){
-    return true;
+  if ((num/divisor) - .000001 == divisor || (num/divisor) + .000001 == divisor || (num/divisor) == divisor){
+    return false;
   }
-  return false;
+  return true;
 }
 
 float average(float divisor, float division){
@@ -32,10 +32,12 @@ int main(){
   float divisor = 1.000000;
   float squareroot;
 
-  while(isanswer(num, division(num, divisor))==false){
+
+  do {
       divisor = average(divisor, division(num, divisor));
-      cout << "new divisor: " << divisor << endl; // to check if it's working
-  };
+      cout << "new divisor: " << divisor << endl;  // to check if it's working
+      cout << "new division: " << division(num, divisor) << endl; // to check if it's working
+  } while(isanswer(num, division(num, divisor))==false);
 
   // needs to be outside of loop because loop only runs while isanswer() == false
   if (isanswer(num, divisor)==true){
@@ -46,4 +48,4 @@ int main(){
   return 0;
 }
 
-// MAYBE TRY CONVERTING TO STRING OR BIGINTEGER TO MAKE VALID FOR BIGGER NUMBERS
+// MAYBE TRY CONVERTING TO STRING TO MAKE VALID FOR BIGGER NUMBERS
