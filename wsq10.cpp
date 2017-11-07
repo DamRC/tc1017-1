@@ -13,9 +13,9 @@ float division(float num, float divisor){
 
 bool isanswer(float num, float divisor){
   if ((num/divisor) - .000001 == divisor || (num/divisor) + .000001 == divisor || (num/divisor) == divisor){
-    return false;
+    return true;
   }
-  return true;
+  return false;
 }
 
 float average(float divisor, float division){
