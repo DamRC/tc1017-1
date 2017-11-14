@@ -13,19 +13,24 @@ int factorial(int n){
   }
 }
 
-double calculate_e(int precision){
-  double answer;
+double calculate_e(double precision){
+  double memory;
   double valueofe = 0;
-  for(int n=0; n<100; n++){
-    valueofe = valueofe + (1/factorial(n));
-  }
-  answer = round(valueofe*pow(10, precision))/pow(10, precision);
-  return answer;
+  int n = 0;
+  cout.precision(10);
+  do{
+    memory = valueofe;
+    valueofe = valueofe + (1.0/factorial(n));
+    // cout << "memory: " << memory << endl;
+    // cout << "value of e: " << valueofe << endl;
+    n++;
+  }while((valueofe-memory)>precision);
+  return valueofe;
 }
 
 int main(){
   cout << "Type in precision: ";
-  int precision;
+  double precision;
   cin >> precision;
 
   if(cin.fail()){
@@ -33,8 +38,12 @@ int main(){
     return 0;
   }
 
-  cout << "factorial: " << factorial(10) << endl;
-  cout << "value of e with " << precision << " decimals is " << calculate_e(precision) << endl;
+
+  cout << "value of e with precision of " << precision << " is " << calculate_e(precision) << endl;
 
   return 0;
 }
+
+// change precision to double
+// stop loop when difference between last and new value is precision (.1-.00001)
+// it's not precision of output, but of value
