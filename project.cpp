@@ -26,6 +26,37 @@ bool checkavailable(char space, vector<char> line){
   return false;
 }
 
+
+bool Horizontal(string letter, vector<string> line){
+
+  for (int i = 0; i < 9; i+2) {
+
+    if(line.at(i)==letter && line.at(i+4)==letter && line.at(i+8)==letter){
+      return true;
+    }
+  }
+  return false;
+}
+
+bool Vertical(string letter, vector<string> line){
+  for (int i = 0; i < 9; i+3) {
+    if(line.at(i)==letter && line.at(i+1)==letter && line.at(i+2)==letter){
+      return true;
+    }
+  }
+  return false;
+}
+
+bool Diagonal(string letter, vector<string> line){
+  for (int i = 0; i < 9; i+3) {
+    if(line.at(i)==letter || line.at(i+1)==letter || line.at(i+2)==letter){
+          cout <<"Diagonal" << endl;
+      return true;
+    }
+  }
+  return false;
+}
+
 int main(){
   vector<char> line;
   char space;
